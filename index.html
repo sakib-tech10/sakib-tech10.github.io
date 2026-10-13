@@ -88,7 +88,130 @@
     .mail-icon {
       color: #58b1ff;
       font-size: 17px;
-    }
+    }/* HERO SECTION */
+
+.hero {
+  min-height: 650px;
+  padding: 80px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+  background: radial-gradient(ellipse at 80% 45%, #102b4b 0%, #081426 55%);
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 590px;
+}
+
+.hero-label {
+  margin: 0 0 22px;
+  color: #48a8ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 65px;
+  line-height: 1.12;
+  letter-spacing: -3px;
+  font-weight: 700;
+}
+
+.hero h1 span {
+  color: #369bff;
+}
+
+.hero-description {
+  max-width: 500px;
+  margin: 27px 0;
+  color: #aab8ca;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-block;
+  padding: 15px 22px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.primary-button {
+  background: #258cf5;
+  color: #ffffff;
+}
+
+.secondary-button {
+  border: 1px solid #35465e;
+  color: #f8fafc;
+}
+
+.hero-location {
+  margin-top: 48px;
+  color: #72839a;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+}
+
+.hero-image-container {
+  flex: 0 0 350px;
+  text-align: center;
+}
+
+.image-frame {
+  width: 330px;
+  height: 410px;
+  margin: auto;
+  padding: 8px;
+  border: 1px solid #258cf5;
+  border-radius: 165px 165px 12px 12px;
+  background: #10243d;
+  box-shadow: 0 0 60px rgba(37, 140, 245, 0.12);
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 160px 160px 8px 8px;
+}
+
+.image-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px 18px;
+  border: 1px solid #263a54;
+  border-radius: 30px;
+  color: #cbd5e1;
+  font-size: 12px;
+  background: #0d1d32;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #369bff;
+  }
   </style>
 </head>
 <body>
@@ -110,6 +233,46 @@
       Get in Touch
     </a>
   </header>
+<main>
+  <section class="hero" id="home">
 
+    <div class="hero-content">
+      <p class="hero-label">ASPIRING SOFTWARE ENGINEER</p>
+
+      <h1>
+        Turning Ideas<br>
+        Into <span>Impact.</span>
+      </h1>
+
+      <p class="hero-description">
+        I am an aspiring software engineer from Ghana with a passion
+        for technology, continuous learning, and building meaningful
+        digital experiences. I am working toward developing the skills
+        to create solutions that make a difference.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="primary-button">Explore My Work ↗</a>
+        <a href="#about" class="secondary-button">More About Me</a>
+      </div>
+
+      <p class="hero-location">
+        BASED IN GHANA · FUTURE SOFTWARE ENGINEER
+      </p>
+    </div>
+
+    <div class="hero-image-container">
+      <div class="image-frame">
+        <img src="profile.png" alt="My portrait">
+      </div>
+
+      <div class="image-caption">
+        <span class="status-dot"></span>
+        <span>Learning. Building. Growing.</span>
+      </div>
+    </div>
+
+  </section>
+</main>
 </body>
 </html>
