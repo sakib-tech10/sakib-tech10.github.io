@@ -342,7 +342,17 @@
     .impact-cards {
         grid-template-columns: 1fr;
     }
-    }
+    }.project-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.project-card-link:focus-visible {
+  outline: 2px solid #369bff;
+  outline-offset: 4px;
+}
   </style>
 </head>
 <body>
@@ -353,7 +363,7 @@
     <nav class="nav-links">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+      <a href="#projects.html">Projects</a>
       <a href="#learning">Learning</a>
       <a href="#vision">Vision</a>
       <a href="#contact">Contact</a>
@@ -432,14 +442,11 @@
       </p>
     </div>
 
-    <div class="impact-card">
-      <div class="card-number">02</div>
-      <h3>My Projects</h3>
-      <p>
-        Exploring website creation and online
-        projects while developing my technical abilities.
-      </p>
-    </div>
+    <a href="projects.html" class="impact-card project-card-link">
+  <div class="card-number">02</div>
+  <h3>My Projects</h3>
+  <p>Exploring website creation and online projects while developing my technical abilities.</p>
+    </a>
 
     <div class="impact-card">
       <div class="card-number">03</div>
