@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the projects and learning journey of Salam Sakib Alhaji, an aspiring Software Engineer from Ghana.">
+  <title>My Projects | Salam Sakib Alhaji</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1120;
+      color: #ffffff;
+      line-height: 1.7;
+    }
+
+    nav {
+      min-height: 80px;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #24334b;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #369bff;
+      font-size: 23px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #dce5f3;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #369bff;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 85px 8% 55px;
+    }
+
+    .section-label {
+      color: #369bff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.2;
+      margin: 20px 0;
+    }
+
+    .page-header h1 span {
+      color: #369bff;
+    }
+
+    .page-header p {
+      color: #aab4c5;
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 16px;
+    }
+
+    .projects {
+      padding: 20px 8% 100px;
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      background: #111b2e;
+      border: 1px solid #24334b;
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: #369bff;
+    }
+
+    .project-number {
+      color: #369bff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .project-card h2 {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .project-card p {
+      color: #aab4c5;
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      align-self: flex-start;
+      border: 1px solid #28558a;
+      color: #8dc7ff;
+      background: #10243d;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
+
+    .project-link {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: auto;
+      background: #369bff;
+      color: #07111f;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .project-link:hover {
+      background: #78bcff;
+    }
+
+    .note {
+      margin-top: 35px;
+      padding: 20px;
+      border-left: 3px solid #369bff;
+      background: #111b2e;
+      border-radius: 5px;
+      color: #aab4c5;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      border-top: 1px solid #24334b;
+      padding: 25px 8%;
+      color: #aab4c5;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #369bff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        flex-direction: column;
+        padding: 20px 6%;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .page-header {
+        padding: 65px 6% 40px;
+      }
+
+      .projects {
+        padding: 15px 6% 70px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a class="logo" href="./index.html">S.A.S.</a>
+
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./index.html#projects">About</a>
+      <a href="./projects.html">Projects</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <span class="section-label">MY WORK & JOURNEY</span>
+
+    <h1>Projects & <span>Experience.</span></h1>
+
+    <p>
+      A growing collection of my digital projects and learning journey
+      as I work toward becoming a Software Engineer.
+    </p>
+  </header>
+
+  <main class="projects">
+    <div class="project-grid">
+
+      <article class="project-card">
+        <span class="project-number">PROJECT 01</span>
+
+        <h2>Style Studio</h2>
+
+        <span class="project-tag">Digital Content & Affiliate Marketing</span>
+
+        <p>
+          Style Studio is my online content and affiliate marketing project,
+          focused on discovering and presenting beauty, fashion, and lifestyle
+          products. Through this project, I am exploring digital content
+          creation, product presentation, and building an online presence.
+        </p>
+
+        <a
+          class="project-link"
+          href="https://sites.google.com/view/stylestudioofficial"
+          target="_blank"
+          rel="noopener noreferrer">
+          Visit Style Studio ↗
+        </a>
+      </article>
+
+      <article class="project-card">
+        <span class="project-number">PROJECT 02</span>
+
+        <h2>Personal Portfolio</h2>
+
+        <span class="project-tag">Personal Development</span>
+
+        <p>
+          This portfolio is my personal space to share my goals, interests,
+          and progress toward studying Software Engineering. I am using it
+          to present my journey, document my development, and work toward
+          creating meaningful digital solutions.
+        </p>
+
+        <a
+          class="project-link"
+          href="https://sakib-tech10.github.io/"
+          target="_blank"
+          rel="noopener noreferrer">
+          View My Portfolio ↗
+        </a>
+      </article>
+
+    </div>
+
+    <div class="note">
+      <strong>My next step:</strong>
+      I am working toward developing my programming knowledge and building
+      practical software projects as I continue my journey into Software Engineering.
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Salam Sakib Alhaji · <a href="./index.html">Return to Home</a></p>
+  </footer>
+
+</body>
+  </html>
