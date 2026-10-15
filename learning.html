@@ -4,53 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Explore Salam Sakib Alhaji's learning journey, personal portfolio project, academic growth, and goals in Software Engineering.">
+  <title>Learning | Salam Sakib Alhaji</title>
 
-  <title>Learning Journey | Salam Sakib Alhaji</title>
+  <meta name="description" content="Explore Salam Sakib Alhaji's learning journey, academic development, personal website project, and ambition to become a Software Engineer.">
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #0b1120;
+      background: #08111f;
       color: #ffffff;
-      line-height: 1.8;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      background: #0d192b;
+      border-bottom: 1px solid #20314a;
+      padding: 18px 7%;
     }
 
     nav {
-      min-height: 80px;
-      padding: 20px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      border-bottom: 1px solid #24334b;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     .logo {
       color: #369bff;
-      font-size: 23px;
+      font-size: 19px;
       font-weight: bold;
       text-decoration: none;
     }
 
     .nav-links {
       display: flex;
-      gap: 24px;
       flex-wrap: wrap;
+      gap: 18px;
     }
 
     .nav-links a {
-      color: #dce5f3;
+      color: #d6deea;
       text-decoration: none;
       font-size: 14px;
     }
@@ -59,116 +63,386 @@
       color: #369bff;
     }
 
-    .page-header {
-      max-width: 900px;
-      margin: auto;
-      padding: 80px 8% 50px;
+    .hero {
+      padding: 75px 7% 55px;
       text-align: center;
+      background: linear-gradient(135deg, #0d192b, #101f36);
     }
 
-    .section-label {
+    .eyebrow {
       color: #369bff;
-      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
       font-weight: bold;
-      letter-spacing: 3px;
     }
 
     h1 {
-      font-size: clamp(32px, 5vw, 46px);
-      line-height: 1.25;
-      margin: 20px 0;
+      font-size: clamp(32px, 6vw, 50px);
+      line-height: 1.2;
+      margin: 15px 0;
     }
 
-    h1 span,
-    .highlight {
-      color: #369bff;
-    }
-
-    .page-header p {
-      color: #aab4c5;
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: #bdc9da;
       font-size: 16px;
-      max-width: 680px;
-      margin: auto;
     }
 
-    .learning-content {
-      max-width: 1000px;
+    main {
+      max-width: 950px;
       margin: auto;
-      padding: 0 8% 90px;
+      padding: 35px 20px 65px;
     }
 
-    .learning-card {
-      background: #111b2e;
-      border: 1px solid #24334b;
+    .section {
+      background: #101d30;
+      border: 1px solid #22344e;
       border-radius: 14px;
-      padding: 30px;
-      margin-bottom: 25px;
+      padding: 28px;
+      margin: 22px 0;
     }
 
-    .card-number {
+    .number {
       color: #369bff;
       font-size: 13px;
       font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
+      letter-spacing: 1px;
     }
 
-    .learning-card h2 {
+    h2 {
       font-size: 23px;
-      line-height: 1.4;
-      margin-bottom: 15px;
+      margin: 7px 0 14px;
     }
 
-    .learning-card p {
-      color: #aab4c5;
-      font-size: 15px;
-      margin-bottom: 12px;
+    h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
     }
 
-    .learning-card p:last-child {
-      margin-bottom: 0;
+    .section p {
+      color: #c0ccdc;
+      margin: 10px 0;
     }
 
-    .project-link {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 11px 18px;
-      background: #369bff;
-      color: #07111f;
-      text-decoration: none;
-      border-radius: 7px;
-      font-size: 14px;
+    .highlight {
+      color: #369bff;
       font-weight: bold;
     }
 
-    .project-link:hover {
-      background: #78bcff;
+    .button {
+      display: inline-block;
+      background: #369bff;
+      color: #07111f;
+      padding: 10px 17px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 12px;
+      font-size: 14px;
     }
 
-    .grade-grid {
+    .button:hover {
+      background: #78bbff;
+    }
+
+    .grades {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 18px;
     }
 
     .grade-item {
-      background: #0b1120;
-      border: 1px solid #24334b;
+      background: #0b1728;
+      border: 1px solid #263b57;
       border-radius: 9px;
-      padding: 15px;
-    }
-
-    .grade-item strong {
-      display: block;
-      color: #ffffff;
-      font-size: 15px;
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
     }
 
     .grade-item span {
       color: #369bff;
-      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #91a3ba !important;
+      margin-top: 15px !important;
     }
 
     .closing-message {
-      border-left: 3
+      border-left: 3px solid #369bff;
+      padding: 12px 18px;
+      margin-top: 20px;
+      background: #0b1728;
+      color: #e4edf9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      background: #0d192b;
+      border-top: 1px solid #20314a;
+      color: #91a3ba;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #369bff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 16px 5%;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 55px 6% 40px;
+      }
+
+      .section {
+        padding: 21px;
+      }
+
+      .grades {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a class="logo" href="index.html">Salam Sakib</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="learning.html">Learning</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Growth • Learning • Technology</div>
+
+    <h1>Learning Today.<br>Building Tomorrow.</h1>
+
+    <p>
+      My journey toward Software Engineering is built on curiosity,
+      persistence, academic development, and a commitment to learning
+      how technology can solve real-world problems.
+    </p>
+  </section>
+
+  <main>
+
+    <section class="section">
+      <div class="number">01 / MY JOURNEY</div>
+
+      <h2>A Beginning With Purpose</h2>
+
+      <p>
+        I am an aspiring Software Engineer from Ghana. I want to understand
+        how technology works and use that knowledge to build solutions
+        that make people's lives better.
+      </p>
+
+      <p>
+        My journey has not been without challenges. Limited access to
+        learning resources and having to rely on a borrowed laptop have
+        taught me to value every opportunity to learn and make progress.
+      </p>
+
+      <p>
+        Rather than allowing these challenges to define my future,
+        I am using them as motivation to keep moving forward.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="number">02 / MY PERSONAL PROJECT</div>
+
+      <h2>Building My Own Portfolio Website</h2>
+
+      <p>
+        Creating this portfolio is an important step in my journey toward
+        technology. I wanted a place where I could present my goals,
+        document my development, and demonstrate my willingness to learn.
+      </p>
+
+      <p>
+        With guidance from ChatGPT, I worked on building and organising
+        this website using HTML and CSS, creating separate pages, connecting
+        navigation links, and publishing the site through GitHub Pages.
+      </p>
+
+      <p>
+        This experience has helped me begin understanding how websites
+        are structured and how individual components work together.
+        I am still learning, and I see this project as a foundation
+        for more advanced work.
+      </p>
+
+      <a class="button"
+         href="https://sakib-tech10.github.io/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Explore My Portfolio
+      </a>
+    </section>
+
+    <section class="section">
+      <div class="number">03 / ACADEMIC DEVELOPMENT</div>
+
+      <h2>Learning From My Academic Journey</h2>
+
+      <p>
+        My academic journey has involved continued effort and a desire
+        to improve. Taking the WASSCE Private examination and continuing
+        with a subsequent WASSCE gave me further opportunities to pursue
+        my educational goals.
+      </p>
+
+      <p>
+        My subsequent WASSCE results included the following grades:
+      </p>
+
+      <div class="grades">
+        <div class="grade-item">
+          <h3>Chemistry</h3>
+          <span>A1</span>
+        </div>
+
+        <div class="grade-item">
+          <h3>Social Studies</h3>
+          <span>A1</span>
+        </div>
+
+        <div class="grade-item">
+          <h3>Physics</h3>
+          <span>B2</span>
+        </div>
+
+        <div class="grade-item">
+          <h3>Mathematics</h3>
+          <span>B2</span>
+        </div>
+
+        <div class="grade-item">
+          <h3>Biology</h3>
+          <span>B2</span>
+        </div>
+
+        <div class="grade-item">
+          <h3>Core Mathematics</h3>
+          <span>C4</span>
+        </div>
+      </div>
+
+      <p class="note">
+        These grades are presented as reported. Academic improvement
+        should be demonstrated by comparing them with the corresponding
+        grades from the earlier examination.
+      </p>
+
+      <p>
+        I want my academic journey to reflect more than a set of grades.
+        I want it to demonstrate perseverance, a willingness to learn
+        from setbacks, and a commitment to continued development.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="number">04 / SKILLS IN DEVELOPMENT</div>
+
+      <h2>What I Am Working Toward</h2>
+
+      <p>
+        I am at the beginning of my programming journey and am building
+        my knowledge step by step.
+      </p>
+
+      <h3>HTML and CSS</h3>
+      <p>
+        Developing my understanding of website structure, styling,
+        responsive layouts, and navigation through this portfolio project.
+      </p>
+
+      <h3>JavaScript</h3>
+      <p>
+        A planned next step in learning how to make websites interactive.
+      </p>
+
+      <h3>Python and Software Development</h3>
+      <p>
+        Future learning goals include programming fundamentals,
+        problem-solving, and building useful software applications.
+      </p>
+
+      <p class="note">
+        These are learning goals, not claims of professional proficiency.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="number">05 / MY COMMITMENT TO GROWTH</div>
+
+      <h2>My Starting Point Is Not My Destination</h2>
+
+      <p>
+        I know that becoming a Software Engineer will require discipline,
+        practice, patience, and continuous learning. I am prepared to
+        keep developing my knowledge and to learn from the mistakes
+        I make along the way.
+      </p>
+
+      <p>
+        My long-term ambition is to build useful software products
+        and technology businesses that solve real problems and create
+        meaningful value.
+      </p>
+
+      <p>
+        Through higher education, practical projects, and consistent
+        effort, I hope to turn this ambition into something real.
+      </p>
+
+      <div class="closing-message">
+        I may be at the beginning of my journey, but I am committed
+        to learning, building, and improving one step at a time.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Salam Sakib Alhaji | Aspiring Software Engineer</p>
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="about.html">About</a> ·
+      <a href="projects.html">Projects</a>
+    </p>
+  </footer>
+
+</body>
+</html>
