@@ -352,6 +352,101 @@
 .project-card-link:focus-visible {
   outline: 2px solid #369bff;
   outline-offset: 4px;
+}/* ==============================
+   HOMEPAGE ANIMATIONS
+============================== */
+
+/* Smooth appearance when the page loads */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gentle floating portrait */
+@keyframes floatPortrait {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Hero text animation */
+.hero-content {
+    animation: fadeInUp 0.9s ease-out both;
+}
+
+/* Portrait animation */
+.hero-image-container {
+    animation: fadeInUp 1s ease-out both;
+    animation-delay: 0.3s;
+}
+
+.image-frame {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-frame:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(54, 155, 255, 0.2);
+}
+
+/* Journey heading */
+.impact-heading {
+    animation: fadeInUp 0.9s ease-out both;
+    animation-delay: 0.2s;
+}
+
+/* Cards appear in sequence */
+.impact-card {
+    animation: fadeInUp 0.7s ease-out both;
+}
+
+.impact-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.impact-card:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.impact-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.impact-card:nth-child(4) {
+    animation-delay: 0.65s;
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-content,
+    .hero-image-container,
+    .impact-heading,
+    .impact-card {
+        animation: none;
+    }
+
+    .image-frame {
+        transition: none;
+    }
+
+    .impact-card:hover,
+    .image-frame:hover {
+        transform: none;
+    }
+}
+
+    .impact-card:hover {
+        transform: none;
+    }
 }
   </style>
 </head>
