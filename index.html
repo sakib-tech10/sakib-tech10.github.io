@@ -405,24 +405,25 @@
 }
 
 /* Cards appear in sequence */
-.impact-card {
-    animation: fadeInUp 1.2s ease-out both;
+.impact-cards .impact-card {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards;
 }
 
-.impact-cards > .impact-card:nth-child(1) {
-    animation-delay: 0.4s;
+.impact-cards .impact-card:nth-child(1) {
+    animation-delay: 0.3s;
 }
 
-.impact-cards > .impact-card:nth-child(2) {
-    animation-delay: 0.7s;
+.impact-cards .impact-card:nth-child(2) {
+    animation-delay: 0.6s;
 }
 
-.impact-cards > .impact-card:nth-child(3) {
-    animation-delay: 1s;
+.impact-cards .impact-card:nth-child(3) {
+    animation-delay: 0.9s;
 }
 
-.impact-cards > .impact-card:nth-child(4) {
-    animation-delay: 1.3s;
+.impact-cards .impact-card:nth-child(4) {
+    animation-delay: 1.2s;
 }
 
 /* Respect visitors who prefer reduced motion */
@@ -432,7 +433,9 @@
     .impact-heading,
     .impact-card {
         animation: none;
+        opacity: 1;
     }
+}
 
     .image-frame {
         transition: none;
