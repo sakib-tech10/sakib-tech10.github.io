@@ -6,7 +6,11 @@
 
   <title>Learning | Salam Sakib Alhaji</title>
 
-  <meta name="description" content="Explore Salam Sakib Alhaji's learning journey, academic development, personal website project, and ambition to become a Software Engineer.">
+  <meta name="description" content="Discover Salam Sakib Alhaji's journey toward Software Engineering, his self-built portfolio website, academic development, and learning goals.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -15,8 +19,12 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       background: #08111f;
       color: #ffffff;
       line-height: 1.7;
@@ -36,152 +44,234 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     .logo {
       color: #369bff;
       font-size: 19px;
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 22px;
     }
 
     .nav-links a {
-      color: #d6deea;
+      color: #cbd6e5;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
+      transition: color 0.25s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
       color: #369bff;
     }
 
     .hero {
-      padding: 75px 7% 55px;
+      padding: 75px 7% 65px;
       text-align: center;
-      background: linear-gradient(135deg, #0d192b, #101f36);
+      background:
+        radial-gradient(ellipse at top, #172b47 0%, #0d192b 60%, #08111f 100%);
+    }
+
+    .hero-content {
+      max-width: 700px;
+      margin: auto;
+      animation: fadeUp 0.8s ease both;
     }
 
     .eyebrow {
       color: #369bff;
       text-transform: uppercase;
       letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: bold;
+      font-size: 11px;
+      font-weight: 700;
     }
 
     h1 {
-      font-size: clamp(32px, 6vw, 50px);
+      font-size: clamp(34px, 5vw, 48px);
       line-height: 1.2;
-      margin: 15px 0;
+      margin: 16px 0;
+      letter-spacing: -1.5px;
     }
 
     .hero p {
-      max-width: 650px;
-      margin: 0 auto;
+      max-width: 590px;
+      margin: auto;
       color: #bdc9da;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     main {
-      max-width: 950px;
+      max-width: 850px;
       margin: auto;
-      padding: 35px 20px 65px;
+      padding: 20px 22px 70px;
     }
 
     .section {
       background: #101d30;
       border: 1px solid #22344e;
-      border-radius: 14px;
-      padding: 28px;
-      margin: 22px 0;
+      border-radius: 12px;
+      padding: 25px 28px;
+      margin: 20px 0;
+      transition:
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
-    .number {
+    .section:hover {
+      border-color: #315580;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .section-label {
       color: #369bff;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
 
     h2 {
-      font-size: 23px;
-      margin: 7px 0 14px;
-    }
-
-    h3 {
-      font-size: 17px;
-      margin-bottom: 8px;
+      font-size: 21px;
+      line-height: 1.4;
+      margin: 8px 0 12px;
+      letter-spacing: -0.4px;
     }
 
     .section p {
-      color: #c0ccdc;
-      margin: 10px 0;
+      color: #bdc9da;
+      font-size: 13px;
+      margin: 8px 0;
     }
 
-    .highlight {
-      color: #369bff;
-      font-weight: bold;
+    .project-callout {
+      border-left: 3px solid #369bff;
+      background: #0b1728;
+      padding: 15px 18px;
+      margin: 17px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .project-callout p {
+      margin: 0;
+      color: #e1eaf6;
     }
 
     .button {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       background: #369bff;
       color: #07111f;
-      padding: 10px 17px;
+      padding: 11px 17px;
       border-radius: 7px;
       text-decoration: none;
-      font-weight: bold;
-      margin-top: 12px;
-      font-size: 14px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-top: 10px;
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .button:hover {
       background: #78bbff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(54, 155, 255, 0.2);
+    }
+
+    .button:focus-visible,
+    .nav-links a:focus-visible {
+      outline: 2px solid #78bbff;
+      outline-offset: 4px;
     }
 
     .grades {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 17px;
     }
 
     .grade-item {
       background: #0b1728;
       border: 1px solid #263b57;
-      border-radius: 9px;
-      padding: 14px;
+      border-radius: 8px;
+      padding: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .grade-item:hover {
+      border-color: #369bff;
+      background: #10213a;
+    }
+
+    .grade-item h3 {
+      color: #dce6f4;
+      font-size: 11px;
+      font-weight: 500;
     }
 
     .grade-item span {
       color: #369bff;
-      font-weight: bold;
+      font-weight: 700;
+      font-size: 14px;
     }
 
-    .note {
-      font-size: 13px;
-      color: #91a3ba !important;
-      margin-top: 15px !important;
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 17px;
     }
 
-    .closing-message {
-      border-left: 3px solid #369bff;
-      padding: 12px 18px;
-      margin-top: 20px;
+    .skill {
       background: #0b1728;
-      color: #e4edf9;
+      border: 1px solid #263b57;
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .skill h3 {
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: #e5edf8;
+    }
+
+    .skill p {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .closing {
+      text-align: center;
+      padding: 25px 15px 10px;
+      color: #bdc9da;
+      font-size: 13px;
+    }
+
+    .closing strong {
+      display: block;
+      color: #369bff;
+      font-size: 16px;
+      margin-bottom: 5px;
     }
 
     footer {
@@ -190,38 +280,98 @@
       background: #0d192b;
       border-top: 1px solid #20314a;
       color: #91a3ba;
-      font-size: 13px;
+      font-size: 12px;
+    }
+
+    footer p + p {
+      margin-top: 7px;
     }
 
     footer a {
       color: #369bff;
       text-decoration: none;
+      margin: 0 5px;
     }
 
-    @media (max-width: 600px) {
+    /* Scroll reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 650px) {
       header {
         padding: 16px 5%;
       }
 
       nav {
-        flex-direction: column;
         align-items: flex-start;
-      }
-
-      .nav-links {
+        flex-direction: column;
         gap: 12px;
       }
 
+      .nav-links {
+        gap: 16px;
+      }
+
       .hero {
-        padding: 55px 6% 40px;
+        padding: 55px 6% 45px;
+      }
+
+      main {
+        padding: 12px 15px 45px;
       }
 
       .section {
         padding: 21px;
+        margin: 15px 0;
       }
 
       .grades {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .skills {
         grid-template-columns: 1fr;
+      }
+
+      .section:hover {
+        transform: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
@@ -230,101 +380,93 @@
 <body>
 
   <header>
-    <nav>
+    <nav aria-label="Main navigation">
       <a class="logo" href="index.html">Salam Sakib</a>
 
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
-        <a href="learning.html">Learning</a>
+        <a href="learning.html" aria-current="page">Learning</a>
       </div>
     </nav>
   </header>
 
   <section class="hero">
-    <div class="eyebrow">Growth • Learning • Technology</div>
+    <div class="hero-content">
+      <div class="eyebrow">Growth · Learning · Technology</div>
 
-    <h1>Learning Today.<br>Building Tomorrow.</h1>
+      <h1>Learning Today.<br>Building Tomorrow.</h1>
 
-    <p>
-      My journey toward Software Engineering is built on curiosity,
-      persistence, academic development, and a commitment to learning
-      how technology can solve real-world problems.
-    </p>
+      <p>
+        My journey toward Software Engineering is shaped by curiosity,
+        persistence, and a desire to use technology to solve real problems.
+      </p>
+    </div>
   </section>
 
   <main>
 
-    <section class="section">
-      <div class="number">01 / MY JOURNEY</div>
+    <!-- Section 1: Journey -->
+    <section class="section reveal">
+      <div class="section-label">01 / My Journey</div>
 
       <h2>A Beginning With Purpose</h2>
 
       <p>
-        I am an aspiring Software Engineer from Ghana. I want to understand
-        how technology works and use that knowledge to build solutions
-        that make people's lives better.
+        I am an aspiring Software Engineer from Ghana, working toward
+        building technology that makes a meaningful difference.
       </p>
 
       <p>
-        My journey has not been without challenges. Limited access to
-        learning resources and having to rely on a borrowed laptop have
-        taught me to value every opportunity to learn and make progress.
-      </p>
-
-      <p>
-        Rather than allowing these challenges to define my future,
-        I am using them as motivation to keep moving forward.
+        Limited access to learning resources and relying on a borrowed
+        laptop have taught me to make the most of every opportunity to grow.
       </p>
     </section>
 
-    <section class="section">
-      <div class="number">02 / MY PERSONAL PROJECT</div>
+    <!-- Section 2: Personal project -->
+    <section class="section reveal">
+      <div class="section-label">02 / My Personal Project</div>
 
-      <h2>Building My Own Portfolio Website</h2>
-
-      <p>
-        Creating this portfolio is an important step in my journey toward
-        technology. I wanted a place where I could present my goals,
-        document my development, and demonstrate my willingness to learn.
-      </p>
+      <h2>I Built My Own Portfolio Website</h2>
 
       <p>
-        With guidance from ChatGPT, I worked on building and organising
-        this website using HTML and CSS, creating separate pages, connecting
-        navigation links, and publishing the site through GitHub Pages.
+        I wanted a place to present my goals, document my progress,
+        and share my journey toward Software Engineering.
       </p>
+
+      <div class="project-callout">
+        <p>
+          I designed, built, and published this website using HTML and CSS.
+          I organised its pages, connected the navigation, and published
+          it through GitHub Pages.
+        </p>
+      </div>
 
       <p>
-        This experience has helped me begin understanding how websites
-        are structured and how individual components work together.
-        I am still learning, and I see this project as a foundation
-        for more advanced work.
+        This project has introduced me to website structure and styling.
+        It is a practical starting point for my continued learning.
       </p>
 
-      <a class="button"
-         href="https://sakib-tech10.github.io/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Explore My Portfolio
+      <a
+        class="button"
+        href="https://sakib-tech10.github.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Explore My Website <span aria-hidden="true">→</span>
       </a>
     </section>
 
-    <section class="section">
-      <div class="number">03 / ACADEMIC DEVELOPMENT</div>
+    <!-- Section 3: Academic development -->
+    <section class="section reveal">
+      <div class="section-label">03 / Academic Development</div>
 
-      <h2>Learning From My Academic Journey</h2>
-
-      <p>
-        My academic journey has involved continued effort and a desire
-        to improve. Taking the WASSCE Private examination and continuing
-        with a subsequent WASSCE gave me further opportunities to pursue
-        my educational goals.
-      </p>
+      <h2>Progress Through Persistence</h2>
 
       <p>
-        My subsequent WASSCE results included the following grades:
+        My academic journey has taught me the value of continued effort.
+        My subsequent WASSCE School results included:
       </p>
 
       <div class="grades">
@@ -344,7 +486,7 @@
         </div>
 
         <div class="grade-item">
-          <h3>Mathematics</h3>
+          <h3>Elective Mathematics</h3>
           <span>B2</span>
         </div>
 
@@ -359,84 +501,56 @@
         </div>
       </div>
 
-      <p class="note">
-        These grades are presented as reported. Academic improvement
-        should be demonstrated by comparing them with the corresponding
-        grades from the earlier examination.
-      </p>
-
       <p>
-        I want my academic journey to reflect more than a set of grades.
-        I want it to demonstrate perseverance, a willingness to learn
-        from setbacks, and a commitment to continued development.
+        I want my academic journey to reflect perseverance, learning
+        from setbacks, and a commitment to improvement.
       </p>
     </section>
 
-    <section class="section">
-      <div class="number">04 / SKILLS IN DEVELOPMENT</div>
+    <!-- Section 4: Learning goals -->
+    <section class="section reveal">
+      <div class="section-label">04 / Skills in Development</div>
 
-      <h2>What I Am Working Toward</h2>
-
-      <p>
-        I am at the beginning of my programming journey and am building
-        my knowledge step by step.
-      </p>
-
-      <h3>HTML and CSS</h3>
-      <p>
-        Developing my understanding of website structure, styling,
-        responsive layouts, and navigation through this portfolio project.
-      </p>
-
-      <h3>JavaScript</h3>
-      <p>
-        A planned next step in learning how to make websites interactive.
-      </p>
-
-      <h3>Python and Software Development</h3>
-      <p>
-        Future learning goals include programming fundamentals,
-        problem-solving, and building useful software applications.
-      </p>
-
-      <p class="note">
-        These are learning goals, not claims of professional proficiency.
-      </p>
-    </section>
-
-    <section class="section">
-      <div class="number">05 / MY COMMITMENT TO GROWTH</div>
-
-      <h2>My Starting Point Is Not My Destination</h2>
+      <h2>What I'm Working Toward</h2>
 
       <p>
-        I know that becoming a Software Engineer will require discipline,
-        practice, patience, and continuous learning. I am prepared to
-        keep developing my knowledge and to learn from the mistakes
-        I make along the way.
+        I am building my knowledge step by step and looking forward
+        to developing more advanced skills.
       </p>
 
-      <p>
-        My long-term ambition is to build useful software products
-        and technology businesses that solve real problems and create
-        meaningful value.
-      </p>
+      <div class="skills">
+        <div class="skill">
+          <h3>HTML & CSS</h3>
+          <p>Practising website structure, styling, and navigation.</p>
+        </div>
 
-      <p>
-        Through higher education, practical projects, and consistent
-        effort, I hope to turn this ambition into something real.
-      </p>
+        <div class="skill">
+          <h3>JavaScript</h3>
+          <p>A planned next step toward interactive websites.</p>
+        </div>
 
-      <div class="closing-message">
-        I may be at the beginning of my journey, but I am committed
-        to learning, building, and improving one step at a time.
+        <div class="skill">
+          <h3>Python</h3>
+          <p>A future goal for learning programming fundamentals.</p>
+        </div>
+
+        <div class="skill">
+          <h3>Software Engineering</h3>
+          <p>Working toward building useful software solutions.</p>
+        </div>
       </div>
     </section>
+
+    <div class="closing reveal">
+      <strong>Learning. Building. Growing.</strong>
+      Every step is an opportunity to improve.
+    </div>
 
   </main>
 
   <footer>
     <p>Salam Sakib Alhaji | Aspiring Software Engineer</p>
+
     <p>
       <a href="index.html">Home</a> ·
       <a href="about.html">About</a> ·
@@ -444,5 +558,26 @@
     </p>
   </footer>
 
+  <script>
+    const sections = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      sections.forEach((section) => observer.observe(section));
+    } else {
+      sections.forEach((section) => section.classList.add('visible'));
+    }
+  </script>
+
 </body>
-</html>
+  </html>
