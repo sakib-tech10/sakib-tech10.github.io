@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore the projects and learning journey of Salam Sakib Alhaji, an aspiring Software Engineer from Ghana.">
-  <title>My Projects | Salam Sakib Alhaji</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <meta name="description" content="Explore the projects and learning journey of Salam Sakib Alhaji, an aspiring Software Engineer from Ghana.">  <meta name="theme-color" content="#081426">  <title>My Projects | Salam Sakib Alhaji</title>  <!-- Inter font -->  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">  <style>
+    :root {
+      --background: #081426;
+      --card-background: #111b2e;
+      --blue: #369bff;
+      --blue-light: #78bcff;
+      --text: #ffffff;
+      --muted: #aab4c5;
+      --border: #24334b;
+    }
 
-  <style>
     * {
       margin: 0;
       padding: 0;
@@ -15,14 +22,22 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 30px;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b1120;
-      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--text);
       line-height: 1.7;
+      overflow-x: hidden;
     }
+
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* NAVIGATION */
 
     nav {
       min-height: 80px;
@@ -30,15 +45,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #24334b;
+      border-bottom: 1px solid var(--border);
       gap: 20px;
+      animation: navAppear 0.7s ease both;
     }
 
     .logo {
-      color: #369bff;
+      color: var(--blue);
       font-size: 23px;
-      font-weight: bold;
+      font-weight: 800;
       text-decoration: none;
+      letter-spacing: -1px;
+      transition: text-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      text-shadow: 0 0 18px rgba(54, 155, 255, 0.55);
     }
 
     .nav-links {
@@ -49,43 +71,94 @@
     }
 
     .nav-links a {
+      position: relative;
       color: #dce5f3;
       text-decoration: none;
       font-size: 14px;
+      transition: color 0.3s ease;
     }
 
-    .nav-links a:hover {
-      color: #369bff;
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
     }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--blue-light);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* PAGE HEADER */
 
     .page-header {
+      position: relative;
+      isolation: isolate;
       text-align: center;
-      padding: 85px 8% 55px;
+      padding: 90px 8% 65px;
+    }
+
+    .page-header::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 520px;
+      height: 320px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(
+        ellipse,
+        rgba(54, 155, 255, 0.13),
+        transparent 70%
+      );
+      pointer-events: none;
+      animation: glowBreath 5s ease-in-out infinite alternate;
     }
 
     .section-label {
-      color: #369bff;
-      font-size: 13px;
-      font-weight: bold;
+      display: inline-block;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
       letter-spacing: 3px;
+      animation: fadeUp 0.8s 0.15s ease both;
     }
 
     .page-header h1 {
-      font-size: clamp(32px, 5vw, 48px);
+      font-size: clamp(34px, 5vw, 50px);
       line-height: 1.2;
+      letter-spacing: -1.8px;
       margin: 20px 0;
+      animation: fadeUp 0.8s 0.3s ease both;
     }
 
     .page-header h1 span {
-      color: #369bff;
+      color: var(--blue);
     }
 
     .page-header p {
-      color: #aab4c5;
+      color: var(--muted);
       max-width: 650px;
       margin: 0 auto;
       font-size: 16px;
+      animation: fadeUp 0.8s 0.45s ease both;
     }
+
+    /* PROJECT GRID */
 
     .projects {
       padding: 20px 8% 100px;
@@ -97,40 +170,102 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 28px;
+      perspective: 1200px;
     }
 
+    /* PROJECT CARDS */
+
     .project-card {
-      background: #111b2e;
-      border: 1px solid #24334b;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: linear-gradient(
+        145deg,
+        #121f34,
+        var(--card-background) 65%
+      );
+      border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 32px;
+      padding: 34px;
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      min-height: 350px;
+
+      opacity: 0;
+      transform: translateY(30px);
+
+      transition:
+        transform 0.45s cubic-bezier(0.2, 0.75, 0.25, 1),
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+    }
+
+    .project-card.is-visible {
+      animation: cardReveal 0.8s cubic-bezier(0.2, 0.75, 0.25, 1) forwards;
+    }
+
+    .project-card.is-visible:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+
+    /* Soft light sweep */
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: -120%;
+      width: 75%;
+      height: 100%;
+      background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(54, 155, 255, 0.055),
+        transparent
+      );
+      transform: skewX(-15deg);
+      transition: left 0.7s ease;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      left: 150%;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      border-color: #369bff;
+      transform: translateY(-8px);
+      border-color: rgba(54, 155, 255, 0.85);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.2),
+        0 0 25px rgba(54, 155, 255, 0.09);
     }
 
     .project-number {
-      color: #369bff;
-      font-size: 13px;
-      font-weight: bold;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
       letter-spacing: 2px;
       margin-bottom: 18px;
     }
 
     .project-card h2 {
       font-size: 25px;
+      letter-spacing: -0.7px;
       margin-bottom: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .project-card:hover h2 {
+      color: var(--blue-light);
     }
 
     .project-card p {
-      color: #aab4c5;
-      font-size: 15px;
-      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+      margin-bottom: 24px;
     }
 
     .project-tag {
@@ -141,48 +276,169 @@
       background: #10243d;
       border-radius: 20px;
       padding: 5px 12px;
-      font-size: 12px;
+      font-size: 11px;
+      font-weight: 600;
       margin-bottom: 25px;
+      transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
     }
+
+    .project-card:hover .project-tag {
+      border-color: var(--blue);
+      background: #142b49;
+    }
+
+    /* BUTTONS */
 
     .project-link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       align-self: flex-start;
+      gap: 8px;
       margin-top: auto;
-      background: #369bff;
+      background: var(--blue);
       color: #07111f;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
       padding: 12px 20px;
+      border: 1px solid transparent;
       border-radius: 7px;
-      font-size: 14px;
+      font-size: 13px;
+
+      transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
-    .project-link:hover {
-      background: #78bcff;
+    .project-link span {
+      display: inline-block;
+      transition: transform 0.3s ease;
     }
+
+    .project-link:hover,
+    .project-link:focus-visible {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+      box-shadow: 0 7px 22px rgba(54, 155, 255, 0.22);
+    }
+
+    .project-link:hover span {
+      transform: translate(3px, -3px);
+    }
+
+    /* NEXT STEP NOTE */
 
     .note {
-      margin-top: 35px;
-      padding: 20px;
-      border-left: 3px solid #369bff;
-      background: #111b2e;
-      border-radius: 5px;
-      color: #aab4c5;
-      font-size: 14px;
+      position: relative;
+      margin-top: 38px;
+      padding: 24px 25px;
+      border: 1px solid rgba(54, 155, 255, 0.12);
+      border-left: 3px solid var(--blue);
+      background: linear-gradient(110deg, #111b2e, #0d192c);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      opacity: 0;
+      transform: translateY(20px);
     }
+
+    .note.is-visible {
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .note strong {
+      color: var(--blue-light);
+    }
+
+    /* FOOTER */
 
     footer {
       text-align: center;
-      border-top: 1px solid #24334b;
-      padding: 25px 8%;
-      color: #aab4c5;
-      font-size: 13px;
+      border-top: 1px solid var(--border);
+      padding: 27px 8%;
+      color: var(--muted);
+      font-size: 12px;
     }
 
     footer a {
-      color: #369bff;
+      color: var(--blue);
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--blue-light);
+    }
+
+    /* KEYFRAMES */
+
+    @keyframes navAppear {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cardReveal {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glowBreath {
+      from {
+        opacity: 0.55;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* KEYBOARD ACCESSIBILITY */
+
+    a:focus-visible {
+      outline: 2px solid var(--blue-light);
+      outline-offset: 4px;
+    }
+
+    /* RESPONSIVE LAYOUT */
+
+    @media (max-width: 800px) {
+      .projects {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .project-grid {
+        gap: 20px;
+      }
+
+      .project-card {
+        padding: 25px;
+      }
     }
 
     @media (max-width: 650px) {
@@ -209,96 +465,145 @@
       }
 
       .project-card {
-        padding: 25px;
+        min-height: 0;
+        padding: 26px;
+      }
+
+      .page-header h1 {
+        letter-spacing: -1px;
+      }
+
+      .note {
+        padding: 20px;
       }
     }
-  </style>
-</head>
 
-<body>
+    /* REDUCED MOTION PREFERENCE */
 
-  <nav>
-    <a class="logo" href="./index.html">S.A.S.</a>
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
 
-    <div class="nav-links">
-      <a href="./index.html">Home</a>
-      <a href="./index.html#projects">About</a>
-      <a href="./projects.html">Projects</a>
-    </div>
-  </nav>
+      .project-card {
+        opacity: 1;
+        transform: none;
+      }
 
-  <header class="page-header">
-    <span class="section-label">MY WORK & JOURNEY</span>
+      .note {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style></head><body>  <nav>
+    <a class="logo" href="./index.html">S.A.S.</a><div class="nav-links">
+  <a href="./index.html">Home</a>
+  <a href="./about.html">About</a>
+  <a href="./projects.html" aria-current="page">Projects</a>
+</div>
 
-    <h1>Projects & <span>Experience.</span></h1>
+  </nav>  <header class="page-header">
+    <span class="section-label">MY WORK &amp; JOURNEY</span><h1>Projects &amp; <span>Experience.</span></h1>
+
+<p>
+  A growing collection of my digital projects and learning journey
+  as I work toward becoming a Software Engineer.
+</p>
+
+  </header>  <main class="projects">
+    <div class="project-grid">  <article class="project-card">
+    <span class="project-number">PROJECT 01</span>
+
+    <h2>Style Studio</h2>
+
+    <span class="project-tag">Digital Content &amp; Affiliate Marketing</span>
 
     <p>
-      A growing collection of my digital projects and learning journey
-      as I work toward becoming a Software Engineer.
+      Style Studio is my online content and affiliate marketing project,
+      which I built from scratch. It focuses on discovering and presenting
+      beauty, fashion, and lifestyle products. Through this project, I am
+      exploring digital content creation, product presentation, and
+      building an online presence.
     </p>
-  </header>
 
-  <main class="projects">
-    <div class="project-grid">
+    <a
+      class="project-link"
+      href="https://sites.google.com/view/stylestudioofficial"
+      target="_blank"
+      rel="noopener noreferrer">
+      Visit Style Studio <span aria-hidden="true">↗</span>
+    </a>
+  </article>
 
-      <article class="project-card">
-        <span class="project-number">PROJECT 01</span>
+  <article class="project-card">
+    <span class="project-number">PROJECT 02</span>
 
-        <h2>Style Studio</h2>
+    <h2>Personal Portfolio</h2>
 
-        <span class="project-tag">Digital Content & Affiliate Marketing</span>
+    <span class="project-tag">HTML &amp; CSS</span>
 
-        <p>
-          Style Studio is my online content and affiliate marketing project i built from scratch,
-          focused on discovering and presenting beauty, fashion, and lifestyle
-          products. Through this project, I am exploring digital content
-          creation, product presentation, and building an online presence.
-        </p>
+    <p>
+      I designed and published this personal portfolio to share my goals,
+      interests, and progress toward studying Software Engineering.
+      Building it has given me practical experience with HTML, CSS,
+      page structure, navigation, and visual design while documenting
+      my development as an aspiring software engineer.
+    </p>
 
-        <a
-          class="project-link"
-          href="https://sites.google.com/view/stylestudioofficial"
-          target="_blank"
-          rel="noopener noreferrer">
-          Visit Style Studio ↗
-        </a>
-      </article>
+    <a
+      class="project-link"
+      href="https://sakib-tech10.github.io/"
+      target="_blank"
+      rel="noopener noreferrer">
+      View My Portfolio <span aria-hidden="true">↗</span>
+    </a>
+  </article>
 
-      <article class="project-card">
-        <span class="project-number">PROJECT 02</span>
+</div>
 
-        <h2>Personal Portfolio</h2>
+<div class="note">
+  <strong>My next step:</strong>
+  I am continuing to develop my programming knowledge and work toward
+  building practical software projects as I pursue Software Engineering.
+</div>
 
-        <span class="project-tag">Personal Development</span>
-
-        <p>
-          This portfolio is my personal space i also built from scratch to share my goals, interests,
-          and progress toward studying Software Engineering. I am using it
-          to present my journey, document my development, and work toward
-          creating meaningful digital solutions.
-        </p>
-
-        <a
-          class="project-link"
-          href="https://sakib-tech10.github.io/"
-          target="_blank"
-          rel="noopener noreferrer">
-          View My Portfolio ↗
-        </a>
-      </article>
-
-    </div>
-
-    <div class="note">
-      <strong>My next step:</strong>
-      I am working toward developing my programming knowledge and building
-      practical software projects as I continue my journey into Software Engineering.
-    </div>
-  </main>
-
-  <footer>
+  </main>  <footer>
     <p>© 2026 Salam Sakib Alhaji · <a href="./index.html">Return to Home</a></p>
-  </footer>
+  </footer>  <script>
+    // Reveal cards and the note as they enter the viewport.
+    const animatedElements = document.querySelectorAll(
+      '.project-card, .note'
+    );
 
-</body>
-  </html>
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      animatedElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    } else {
+      // Keep all content visible if animation is unsupported or reduced.
+      animatedElements.forEach((element) => {
+        element.classList.add('is-visible');
+      });
+    }
+  </script></body>
+                         </html>
